@@ -4,29 +4,56 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hill Station website</title>
+  <title>Hill Station</title>
+  <link rel="icon" type="image/png" href="Images/Montara_Mountain.png">
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
 </head>
 
 <body>
+   <div id="main">
+  <div class="progress-bar" id="progressBar"></div>
+  <!-- HEADER SECTION -->
+
   <header>
     <div class="box">
       <nav>
-        <span><img width="195px" src="Images/Montara.png" /></span>
-        <div>
+        <span>
+          <img width="195px" height="160px" src="Montara(3).png" />
+        </span>
+
+        <div class="desktop-nav" id="desktopNav">
           <button class="headerButtons">Flights</button>
           <button class="headerButtons">Hotels</button>
           <button class="headerButtons">Homestays& villas</button>
-          <button class="headerButtons">Holidays pacakage</button>
+          <button class="headerButtons">Holidays package</button>
           <button class="headerButtons">Trains</button>
           <button class="headerButtons">Buses</button>
           <button class="headerButtons">Cabs</button>
           <button class="headerButtons">Visa</button>
         </div>
+
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </nav>
+      <!-- MOBILE MENU -->
+      <div class="mobile-menu" id="mobileMenu">
+        <button>Flights</button>
+        <button>Hotels</button>
+        <button>Homestays</button>
+        <button>Holidays</button>
+        <button>Trains</button>
+        <button>Buses</button>
+        <button>Cabs</button>
+        <button>Visa</button>
+      </div>
       <div class="Info">
-        <h1>
-          Hill Stations to Visit for a rejuvenating trip in Nature's Lap
+        <h1 id="heroText">
+          
         </h1>
         <p>
           Hill Stations - Breathe in the fresh mountain air, treat your eyes
@@ -34,8 +61,19 @@
           to feel refreshed from within.
         </p>
       </div>
+
     </div>
+
   </header>
+
+  <!-- SEARCH DESTINATIONS -->
+
+  <div class="destination">
+    <input type="text" placeholder="Search for hill stations..." />
+  </div>
+
+  <!-- TOP DESTINATIONS SECTION -->
+
   <section class="top-destinations" id="destinations">
     <div class="Cards">
       <img src="Images/Leh-Ladakh.jpg" />
@@ -84,8 +122,7 @@
       <img src="Images/Kodaikanal.webp" />
       <h1>kodaikanal</h1>
       <p class="shortPara">
-        Famous for the star-shaped Kodaikanal Lake, Bryant Park, Coaker's
-        Walk.
+        Princess of Hill Stations in Tamil Nadu
       </p>
       <div class="seperation"></div>
       <a href="kodaikanal.html" class="Explore">Explore</a>
@@ -99,14 +136,21 @@
       <div class="seperation"></div>
       <a href="kalpa.html" class="Explore">Explore</a>
     </div>
-     <div class="Cards">
+    <div class="Cards">
       <img src="Images/pahalgam.jpg" />
       <h1>Pahalgam</h1>
       <p class="shortPara">Valley of Shepherds in Kashmir</p>
       <div class="seperation"></div>
       <a href="pahalgam.html" class="Explore">Explore</a>
     </div>
+
   </section>
+  <div class="no-results" id="noResults">
+    No destinations found. Try a different search.
+  </div>
+
+  <!--  WHY SECTION -->
+
   <section class="why" id="montara">
     <h1>Why Choose Montara</h1>
 
@@ -129,23 +173,100 @@
     </div>
   </section>
 
+  <!-- CTA SECTION -->
+
   <section class="cta" id="tips">
+
     <h1>Start Your Journey</h1>
+
     <p>Discover amazing hill stations with Montara.</p>
-    <a href="#destinations"><button>Explore Now</button>
+
+    <a href="#destinations" class="cta-link">
+      Explore Now
+    </a>
+
   </section>
+
+  <!-- FORM VALIDATION SECTION -->
+
+  <section class="form-validation">
+    <div class="form-container">
+
+      <div class="form-heading">
+        <h1>Plan Your Trip</h1>
+      </div>
+
+      <p class="form-subtitle">
+        Fill in your details and we'll help you plan the perfect hill station getaway
+      </p>
+
+      <form id="travelForm">
+
+        <div class="input-row">
+
+          <div class="input-group">
+            <label>Full Name</label>
+            <input type="text" id="name" placeholder="Enter Your Name">
+            <small class="error"></small>
+          </div>
+
+          <div class="input-group">
+            <label>Email Address</label>
+            <input type="email" id="email" placeholder="Enter Your Email">
+            <small class="error"></small>
+            <small id="mailError">Please enter a valid email address</small>
+          </div>
+
+        </div>
+
+        <div class="input-row">
+
+          <div class="input-group">
+            <label>Destination</label>
+            <input type="text" id="destination" placeholder="e.g. Leh, Shimla...">
+            <small class="error"></small>
+            <small id="destinationError">Please enter a valid destination</small>
+          </div>
+
+          <div class="input-group">
+            <label>Travel Date</label>
+            <input type="date" id="date">
+            <small class="error"></small>
+          </div>
+
+        </div>
+
+        <div class="input-group full-width">
+          <label>Message</label>
+          <textarea id="message" placeholder="Tell us about your travel plans..."></textarea>
+          <small class="error"></small>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          Send Message
+        </button>
+        <div class="success-message" id="successMessage">
+          ✓ Message sent! We'll get back to you within 24 hours.
+        </div>
+
+      </form>
+
+    </div>
+  </section>
+
+  <!-- fOOTER SECTION -->
 
   <footer class="footer">
 
     <div class="footer-container">
 
-    
+
       <div class="footer-about">
         <h2>Montara</h2>
         <p>Discover the most beautiful hill stations with curated travel experiences and modern exploration.</p>
       </div>
 
-    
+
       <div class="footer-links">
         <h3>Explore</h3>
         <ul>
@@ -182,6 +303,13 @@
     </div>
 
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/TextPlugin.min.js"></script>
+ <script src="script.js"></script>
+
+</div>
 </body>
+
 
 </html>
