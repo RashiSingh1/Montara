@@ -113,8 +113,8 @@ code .
 ---
 
 ## 📸 Screenshots
+<img width="1920" height="913" alt="2026-05-31 (4)" src="https://github.com/user-attachments/assets/14006be1-2da0-46ce-97ff-8736d9422e8f" />
 
-<img width="1920" height="913" alt="2026-05-31 (4)" src="https://github.com/user-attachments/assets/8a98140f-dc75-4f21-9a46-ace5a35ab8cb" />
 
 
 ---
