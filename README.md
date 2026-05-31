@@ -114,7 +114,7 @@ code .
 
 ## 📸 Screenshots
 
-> <img width="1920" height="1080" alt="2026-05-31 (4)" src="https://github.com/user-attachments/assets/d7d7ec7e-0d8f-44e1-9128-1424658d938f" />
+<img width="1920" height="913" alt="2026-05-31 (4)" src="https://github.com/user-attachments/assets/8a98140f-dc75-4f21-9a46-ace5a35ab8cb" />
 
 
 ---
