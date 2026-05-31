@@ -1,4 +1,5 @@
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/48beff9b-1693-41eb-ad1e-d61cf96a2f56" /># 🏔️ Montara — Hill Station Discovery Platform
+<img width="1920" height="913" alt="2026-05-31 (4)" src="https://github.com/user-attachments/assets/edf2c5a3-49ec-421f-a07f-e5b33152cf29" />
+# 🏔️ Montara — Hill Station Discovery Platform
 
 > Discover India's most breathtaking hill stations through an immersive, animated travel experience.
 
