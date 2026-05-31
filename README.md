@@ -1,4 +1,3 @@
-<img width="1920" height="913" alt="2026-05-31 (4)" src="https://github.com/user-attachments/assets/edf2c5a3-49ec-421f-a07f-e5b33152cf29" />
 # 🏔️ Montara — Hill Station Discovery Platform
 
 > Discover India's most breathtaking hill stations through an immersive, animated travel experience.
@@ -20,38 +19,40 @@
 
 ## 📖 About
 
-**Montara** is a niche hill station discovery platform that helps travelers explore hidden and popular hill destinations across India. Built with vanilla HTML, CSS, and JavaScript, it features smooth animations, interactive UI elements, and detailed destination pages — all without any frontend framework.
+**Montara** is a niche hill station discovery platform that helps travelers explore hidden and popular hill destinations across India. Built with vanilla HTML, CSS, and JavaScript — no frontend framework used.
 
-This project started as a college HTML/CSS project and evolved into a full-featured, JavaScript-powered travel platform with animations and interactivity.
+This project started as a college HTML/CSS project and evolved into a full-featured, JavaScript-powered travel platform with smooth animations, multi-page architecture, and real interactivity.
+
+Each destination has its own dedicated page with top attractions, a photo gallery, best time to visit, and travel tips — all styled consistently using shared CSS (`explore.css`) and shared JS (`common.js`).
 
 ---
 
 ## ✨ Features
 
-- 🔍 **Search & Filter** — Real-time destination search with instant results
-- 📜 **Scroll Progress Bar** — Visual reading progress indicator
-- 🎬 **GSAP Animations** — Smooth entrance animations using GreenSock (TextPlugin)
-- 🚂 **Locomotive Scroll** — Smooth scroll experience across all pages
-- 👁️ **IntersectionObserver** — Scroll-triggered reveal animations
-- ✅ **Form Validation** — Client-side validated contact/newsletter form
-- 📱 **Fully Responsive** — Works across desktop, tablet, and mobile
-- 🗺️ **9 Destination Pages** — Dedicated pages for each hill station
+- 🔍 **Real-time Search & Filter** — Instant destination search using DOM manipulation
+- 📜 **Scroll Progress Bar** — Fixed top bar showing reading progress via `window.scroll`
+- 🎬 **GSAP + TextPlugin** — Animated hero text typewriter effect on homepage
+- 🚂 **Locomotive Scroll** — Smooth scroll with lerp across all pages
+- 👁️ **IntersectionObserver Animations** — Cards animate in on scroll with staggered delay
+- ✅ **Form Validation** — Full client-side validation (name, email regex, destination whitelist, date, message)
+- 🍔 **Hamburger Menu** — Mobile-responsive nav with CSS toggle animation
+- 📱 **Fully Responsive** — Desktop, tablet (768px), and mobile (480px) breakpoints
 
 ---
 
 ## 🏔️ Destinations Covered
 
-| Destination | State |
-|-------------|-------|
-| Shimla | Himachal Pradesh |
-| Leh | Ladakh |
-| Ooty | Tamil Nadu |
-| Coorg | Karnataka |
-| Pahalgam | Jammu & Kashmir |
-| Gulmarg | Jammu & Kashmir |
-| Kodaikanal | Tamil Nadu |
-| Kalpa | Himachal Pradesh |
-| Pangi Valley | Himachal Pradesh |
+| Destination | State | Highlights |
+|-------------|-------|------------|
+| Leh | Ladakh | Pangong Lake, Nubra Valley, Magnetic Hill |
+| Shimla | Himachal Pradesh | Mall Road, Jakhu Temple, The Ridge |
+| Ooty | Tamil Nadu | Nilgiri Hills, Botanical Garden, Ooty Lake |
+| Coorg | Karnataka | Abbey Falls, Raja's Seat, Coffee Estates |
+| Pahalgam | Jammu & Kashmir | Betaab Valley, Aru Valley, Baisaran |
+| Gulmarg | Jammu & Kashmir | Gondola Ride, Skiing, Alpine Meadows |
+| Kodaikanal | Tamil Nadu | Coaker's Walk, Bear Shola Falls, Star Lake |
+| Kalpa | Himachal Pradesh | Kinner Kailash, Apple Orchards |
+| Pangi Valley | Himachal Pradesh | Sach Pass, Remote Himalayan Culture |
 
 ---
 
@@ -59,12 +60,13 @@ This project started as a college HTML/CSS project and evolved into a full-featu
 
 | Technology | Usage |
 |-----------|-------|
-| HTML5 | Structure & Semantic Markup |
-| CSS3 | Styling, Flexbox, Grid, Animations |
-| JavaScript (Vanilla) | DOM Manipulation, Interactivity |
-| GSAP + TextPlugin | Hero text animations |
-| Locomotive Scroll | Smooth scrolling |
-| Scroll-triggered animations |
+| HTML5 | Semantic structure across 10+ pages |
+| CSS3 | Flexbox, Grid, Glassmorphism, Responsive |
+| JavaScript (Vanilla) | DOM, Events, IntersectionObserver, Validation |
+| GSAP 3.13 + TextPlugin | Hero typewriter animation |
+| Locomotive Scroll 4.1.4 | Smooth scroll with lerp on all pages |
+| Font Awesome 6.5 | Social icons on destination pages |
+| Google Fonts | Poppins, Playfair Display |
 | Vercel | Deployment & Hosting |
 
 ---
@@ -73,14 +75,15 @@ This project started as a college HTML/CSS project and evolved into a full-featu
 
 ```
 Montara/
-├── index.html          # Main landing page
-├── style.css           # Global styles
-├── script.js           # Main JavaScript (search, scroll, animations)
-├── explore.css         # Explore page styles
-├── common.js           # Shared JS across pages
-├── Shimla.html         # Shimla destination page
-├── Shimla.css
-├── leh.html            # Leh destination page
+├── index.html            # Main landing page
+├── style.css             # Homepage styles (glassmorphism, nav, cards)
+├── script.js             # Homepage JS (search, scroll bar, GSAP, form, animations)
+├── explore.css           # Shared styles for all 9 destination pages
+├── common.js             # Shared Locomotive Scroll init for destination pages
+│
+├── leh.html              # Leh — Pangong, Nubra, Magnetic Hill, Thiksey
+├── Shimla.html           # Shimla destination page
+├── Shimla.css            # Shimla-specific styles
 ├── ooty.html
 ├── coorg.html
 ├── pahalgam.html
@@ -88,7 +91,10 @@ Montara/
 ├── kodaikanal.html
 ├── kalpa.html
 ├── PangiValley.html
-└── Images/             # All destination images
+│
+├── Montara(3).png        # Logo
+├── Montara_Logo.png
+└── Images/               # 100+ destination images (jpg, webp, avif)
 ```
 
 ---
@@ -96,45 +102,58 @@ Montara/
 ## 🚀 Getting Started
 
 ### View Live
-Simply visit **[montara-zeta.vercel.app](https://montara-zeta.vercel.app/)**
+Visit **[montara-zeta.vercel.app](https://montara-zeta.vercel.app/)**
 
 ### Run Locally
 ```bash
 # Clone the repository
 git clone https://github.com/RashiSingh1/Montara.git
 
-# Open in VS Code
 cd Montara
 code .
 
-# Open index.html with Live Server
+# Open index.html with Live Server (VS Code extension)
 ```
-> No installation or build step needed — pure HTML/CSS/JS!
+> No build step, no npm, no framework — pure HTML/CSS/JS!
 
 ---
 
 ## 📸 Screenshots
-<img width="1920" height="913" alt="2026-05-31 (4)" src="https://github.com/user-attachments/assets/14006be1-2da0-46ce-97ff-8736d9422e8f" />
+
+> <img width="1920" height="913" alt="2026-05-31 (4)" src="https://github.com/user-attachments/assets/121dd019-bd11-4766-b4db-f80d5f41f2d7" />
 
 
+---
+
+## 🐛 Known Issues & Fixes Applied
+
+| Issue | Fix |
+|-------|-----|
+| GSAP TextPlugin not registered | Added `gsap.registerPlugin(TextPlugin)` |
+| Locomotive Scroll + `window.scroll` conflict on progress bar | Used `scroll.on("scroll")` instead |
+| Search only matching from start | Changed `startsWith` → `includes` for better UX |
 
 ---
 
 ## 🎯 What I Learned
 
-- Building multi-page websites with shared components using vanilla JS
-- Integrating GSAP animations and resolving Locomotive Scroll conflicts
-- Implementing real-time search/filter without any library
-- Using IntersectionObserver for performant scroll animations
-- Deploying and managing projects on Vercel
+- Building a multi-page website with shared CSS and JS across 9+ pages
+- Integrating and debugging GSAP TextPlugin with Locomotive Scroll
+- Writing real-time search/filter logic from scratch without any library
+- Using IntersectionObserver API for performant scroll-triggered animations
+- Client-side form validation with regex and destination whitelisting
+- Mobile-first responsive design with hamburger menu
+- Deploying and managing a multi-page project on Vercel
 
 ---
+
 
 ## 👩‍💻 Author
 
 **Rashi Kumari**
 - GitHub: [@RashiSingh1](https://github.com/RashiSingh1)
-- LinkedIn: [[linkedin.com/in/rashi-kumari-1](https://www.linkedin.com/in/rashi-kumari-1)](https://www.linkedin.com/in/rashi-kumari-15987a321/)
+- LinkedIn: [linkedin.com/in/rashi-kumari-15987a321](https://www.linkedin.com/in/rashi-kumari-15987a321/)
+
 
 ---
 
@@ -144,4 +163,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-⭐ **If you like this project, please give it a star!** It motivates me to keep building.
+⭐ **If you found this helpful, please give it a star!** It motivates me to keep building.
