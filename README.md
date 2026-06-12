@@ -1,6 +1,6 @@
 # 🏔️ Montara — Hill Station Discovery Platform
 
-> Discover India's most breathtaking hill stations through an immersive, animated travel experience.
+> Discover India's most breathtaking hill stations through an immersive, animated travel experience — with live weather data on every destination.
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-brightgreen?style=for-the-badge)](https://montara-zeta.vercel.app/)
 [![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
@@ -21,7 +21,7 @@
 
 **Montara** is a niche hill station discovery platform that helps travelers explore hidden and popular hill destinations across India. Built with vanilla HTML, CSS, and JavaScript — no frontend framework used.
 
-This project started as a college HTML/CSS project and evolved into a full-featured, JavaScript-powered travel platform with smooth animations, multi-page architecture, and real interactivity.
+This project started as a college HTML/CSS project and evolved into a full-featured, JavaScript-powered travel platform with smooth animations, real-time weather data via API integration, multi-page architecture, and real interactivity.
 
 Each destination has its own dedicated page with top attractions, a photo gallery, best time to visit, and travel tips — all styled consistently using shared CSS (`explore.css`) and shared JS (`common.js`).
 
@@ -29,7 +29,8 @@ Each destination has its own dedicated page with top attractions, a photo galler
 
 ## ✨ Features
 
-- 🔍 **Real-time Search & Filter** — Instant destination search using DOM manipulation
+- 🌤️ **Live Weather API** — Real-time temperature and conditions on every destination card via OpenWeatherMap API (async/await, loading spinner, graceful error handling)
+- 🔍 **Real-time Search & Filter** — Instant destination search using DOM manipulation with card counter
 - 📜 **Scroll Progress Bar** — Fixed top bar showing reading progress via `window.scroll`
 - 🎬 **GSAP + TextPlugin** — Animated hero text typewriter effect on homepage
 - 🚂 **Locomotive Scroll** — Smooth scroll with lerp across all pages
@@ -37,6 +38,27 @@ Each destination has its own dedicated page with top attractions, a photo galler
 - ✅ **Form Validation** — Full client-side validation (name, email regex, destination whitelist, date, message)
 - 🍔 **Hamburger Menu** — Mobile-responsive nav with CSS toggle animation
 - 📱 **Fully Responsive** — Desktop, tablet (768px), and mobile (480px) breakpoints
+
+---
+
+## 🌤️ Weather API Integration
+
+Each destination card fetches live weather data from the **OpenWeatherMap API** on page load:
+
+- Temperature in Celsius (rounded)
+- Current weather condition (clear sky, light rain, etc.)
+- Loading spinner while fetching — graceful "unavailable" fallback on error
+- Implemented using `async/await` and `fetch()` — no external libraries
+
+```js
+async function fetchWeather(city) {
+  const res = await fetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
+  );
+  const data = await res.json();
+  return { temp: Math.round(data.main.temp), desc: data.weather[0].description };
+}
+```
 
 ---
 
@@ -62,7 +84,8 @@ Each destination has its own dedicated page with top attractions, a photo galler
 |-----------|-------|
 | HTML5 | Semantic structure across 10+ pages |
 | CSS3 | Flexbox, Grid, Glassmorphism, Responsive |
-| JavaScript (Vanilla) | DOM, Events, IntersectionObserver, Validation |
+| JavaScript (Vanilla) | DOM, Events, Fetch API, Async/Await, IntersectionObserver, Validation |
+| OpenWeatherMap API | Live weather data on all destination cards |
 | GSAP 3.13 + TextPlugin | Hero typewriter animation |
 | Locomotive Scroll 4.1.4 | Smooth scroll with lerp on all pages |
 | Font Awesome 6.5 | Social icons on destination pages |
@@ -76,8 +99,8 @@ Each destination has its own dedicated page with top attractions, a photo galler
 ```
 Montara/
 ├── index.html            # Main landing page
-├── style.css             # Homepage styles (glassmorphism, nav, cards)
-├── script.js             # Homepage JS (search, scroll bar, GSAP, form, animations)
+├── style.css             # Homepage styles (glassmorphism, nav, cards, weather badge)
+├── script.js             # Homepage JS (search, scroll bar, GSAP, form, weather API)
 ├── explore.css           # Shared styles for all 9 destination pages
 ├── common.js             # Shared Locomotive Scroll init for destination pages
 │
@@ -120,25 +143,27 @@ code .
 
 ## 📸 Screenshots
 
-> <img width="1920" height="913" alt="2026-05-31 (4)" src="https://github.com/user-attachments/assets/121dd019-bd11-4766-b4db-f80d5f41f2d7" />
-
+> <img width="1920" height="913" alt="Montara Homepage" src="https://github.com/user-attachments/assets/121dd019-bd11-4766-b4db-f80d5f41f2d7" />
 
 ---
 
 ## 🐛 Known Issues & Fixes Applied
 
-| Issue | Fix |
+| Issue | Fix Applied |
 |-------|-----|
 | GSAP TextPlugin not registered | Added `gsap.registerPlugin(TextPlugin)` |
 | Locomotive Scroll + `window.scroll` conflict on progress bar | Used `scroll.on("scroll")` instead |
-| Search only matching from start | Changed `startsWith` → `includes` for better UX |
+| Search hiding cards with `opacity: 0` | Added `classList.add/remove("show")` alongside `display` toggle |
+| `DOMContentLoaded` firing too late for weather | Replaced event listener with direct `loadAllWeather()` call |
+| Weather badge layout shift during loading | Added `min-height` on badge + spinner + `.hidden` utility class |
 
 ---
 
 ## 🎯 What I Learned
 
 - Building a multi-page website with shared CSS and JS across 9+ pages
-- Integrating and debugging GSAP TextPlugin with Locomotive Scroll
+- Integrating a real REST API (OpenWeatherMap) using `fetch()` and `async/await`
+- Implementing loading states, error handling, and spinner UI for async operations
 - Writing real-time search/filter logic from scratch without any library
 - Using IntersectionObserver API for performant scroll-triggered animations
 - Client-side form validation with regex and destination whitelisting
@@ -147,13 +172,11 @@ code .
 
 ---
 
-
 ## 👩‍💻 Author
 
 **Rashi Kumari**
 - GitHub: [@RashiSingh1](https://github.com/RashiSingh1)
 - LinkedIn: [linkedin.com/in/rashi-kumari-15987a321](https://www.linkedin.com/in/rashi-kumari-15987a321/)
-
 
 ---
 
