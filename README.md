@@ -21,7 +21,7 @@
 
 **Montara** is a niche hill station discovery platform that helps travelers explore hidden and popular hill destinations across India. Built with vanilla HTML, CSS, and JavaScript — no frontend framework used.
 
-This project started as a college HTML/CSS project and evolved into a full-featured, JavaScript-powered travel platform with smooth animations, real-time weather data via API integration, multi-page architecture, and real interactivity.
+This project started as a college HTML/CSS project and evolved into a full-featured, JavaScript-powered travel platform with smooth animations, real-time weather data via API integration, multi-page architecture, real interactivity, and a fully functional contact form with email notifications.
 
 Each destination has its own dedicated page with top attractions, a photo gallery, best time to visit, and travel tips — all styled consistently using shared CSS (`explore.css`) and shared JS (`common.js`).
 
@@ -30,6 +30,7 @@ Each destination has its own dedicated page with top attractions, a photo galler
 ## ✨ Features
 
 - 🌤️ **Live Weather API** — Real-time temperature and conditions on every destination card via OpenWeatherMap API (async/await, loading spinner, graceful error handling)
+- 📧 **Functional Contact Form** — Real-time email notifications via EmailJS API integration, with no dedicated backend server required
 - 🔍 **Real-time Search & Filter** — Instant destination search using DOM manipulation with card counter
 - 📜 **Scroll Progress Bar** — Fixed top bar showing reading progress via `window.scroll`
 - 🎬 **GSAP + TextPlugin** — Animated hero text typewriter effect on homepage
@@ -62,6 +63,26 @@ async function fetchWeather(city) {
 
 ---
 
+## 📧 Contact Form & Email Integration
+
+The "Plan Your Trip" form on the homepage sends real-time email notifications using **EmailJS**, eliminating the need for a custom backend or server-side mail handling:
+
+- Client-side validation runs first (name, email format, destination whitelist, date, message)
+- On successful validation, form data is sent via `emailjs.sendForm()` directly from the browser
+- Success and error states are handled gracefully with user-facing feedback
+
+```js
+emailjs.sendForm("service_id", "template_id", form)
+  .then(function () {
+    successMessage.style.display = "block";
+    form.reset();
+  }, function (error) {
+    console.log("EmailJS error:", error);
+  });
+```
+
+---
+
 ## 🏔️ Destinations Covered
 
 | Destination | State | Highlights |
@@ -86,6 +107,7 @@ async function fetchWeather(city) {
 | CSS3 | Flexbox, Grid, Glassmorphism, Responsive |
 | JavaScript (Vanilla) | DOM, Events, Fetch API, Async/Await, IntersectionObserver, Validation |
 | OpenWeatherMap API | Live weather data on all destination cards |
+| EmailJS | Serverless contact form email notifications |
 | GSAP 3.13 + TextPlugin | Hero typewriter animation |
 | Locomotive Scroll 4.1.4 | Smooth scroll with lerp on all pages |
 | Font Awesome 6.5 | Social icons on destination pages |
@@ -100,7 +122,7 @@ async function fetchWeather(city) {
 Montara/
 ├── index.html            # Main landing page
 ├── style.css             # Homepage styles (glassmorphism, nav, cards, weather badge)
-├── script.js             # Homepage JS (search, scroll bar, GSAP, form, weather API)
+├── script.js             # Homepage JS (search, scroll bar, GSAP, form, weather API, EmailJS)
 ├── explore.css           # Shared styles for all 9 destination pages
 ├── common.js             # Shared Locomotive Scroll init for destination pages
 │
@@ -167,6 +189,7 @@ code .
 - Writing real-time search/filter logic from scratch without any library
 - Using IntersectionObserver API for performant scroll-triggered animations
 - Client-side form validation with regex and destination whitelisting
+- Integrating a third-party email service (EmailJS) to add real functionality to a static frontend
 - Mobile-first responsive design with hamburger menu
 - Deploying and managing a multi-page project on Vercel
 
