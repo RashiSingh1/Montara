@@ -169,7 +169,7 @@ function formValidation() {
         // SUCCESS - SEND EMAIL VIA EMAILJS
 
         if (isValid) {
-            emailjs.sendForm("service_ndk161v", "template_vdmd4jl", form)
+            emailjs.sendForm("service_ndk161v", "template_05ho04w", form)
                 .then(function () {
                     successMessage.style.display = "block";
                     form.reset();
