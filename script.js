@@ -1,4 +1,4 @@
-// EMAILJS INIT
+// EMAILJS 
 emailjs.init("hG2mo7izLO4Q5avo9");
 
 const scroll = new LocomotiveScroll({
@@ -61,7 +61,7 @@ function searchDestinations() {
                 description.startsWith(searchValue)
             ) {
                 card.style.display = "block";
-                card.classList.add("show"); // FIX: opacity bhi reset hogi
+                card.classList.add("show"); 
                 found = true;
             } else {
                 card.style.display = "none";
@@ -166,7 +166,7 @@ function formValidation() {
             isValid = false;
         }
 
-        // SUCCESS - SEND EMAIL VIA EMAILJS
+        // SEND EMAIL VIA EMAILJS
 
         if (isValid) {
             emailjs.sendForm("service_ndk161v", "template_05ho04w", form)
@@ -177,6 +177,7 @@ function formValidation() {
                     alert("Failed to send message. Please try again.");
                     console.log("EmailJS error:", error);
                 });
+                
         }
     });
 }
