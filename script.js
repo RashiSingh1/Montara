@@ -1,3 +1,6 @@
+// EMAILJS INIT
+emailjs.init("hG2mo7izLO4Q5avo9");
+
 const scroll = new LocomotiveScroll({
     el: document.querySelector("#main"),
     smooth: true,
@@ -163,11 +166,17 @@ function formValidation() {
             isValid = false;
         }
 
-        // SUCCESS
+        // SUCCESS - SEND EMAIL VIA EMAILJS
 
         if (isValid) {
-            successMessage.style.display = "block";
-            form.reset();
+            emailjs.sendForm("service_ndk161v", "template_vdmd4jl", form)
+                .then(function () {
+                    successMessage.style.display = "block";
+                    form.reset();
+                }, function (error) {
+                    alert("Failed to send message. Please try again.");
+                    console.log("EmailJS error:", error);
+                });
         }
     });
 }
