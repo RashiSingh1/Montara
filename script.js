@@ -5,7 +5,7 @@ const scroll = new LocomotiveScroll({
     el: document.querySelector("#main"),
     smooth: true,
     multiplier: 1,
-    lerp: 0.08
+    lerp: 0.1
 });
 
 window.addEventListener("load", () => {
@@ -16,16 +16,10 @@ window.addEventListener("load", () => {
     });
 });
 
-// SCROLL PROGRESS BAR
 function progressBar() {
-    window.addEventListener("scroll", function () {
-        let scrollTop = window.scrollY;
-        let docHeight =
-            document.documentElement.scrollHeight -
-            window.innerHeight;
-        let scrollPercent = (scrollTop / docHeight) * 100;
-        document.getElementById("progressBar").style.width =
-            scrollPercent + "%";
+    scroll.on("scroll", (obj) => {
+        let scrollPercent = (obj.scroll.y / obj.limit.y) * 100;
+        document.getElementById("progressBar").style.width = scrollPercent + "%";
     });
 }
 progressBar();
@@ -282,4 +276,6 @@ async function loadAllWeather() {
     }
 }
 
-loadAllWeather();
+loadAllWeather().then(() => {
+    scroll.update();
+});
