@@ -4,7 +4,7 @@ emailjs.init("hG2mo7izLO4Q5avo9");
 const scroll = new LocomotiveScroll({
     el: document.querySelector("#main"),
     smooth: true,
-    multiplier: 1,
+    multiplier: 1.5,
     lerp: 0.08
 });
 
