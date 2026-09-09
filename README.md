@@ -1,4 +1,4 @@
-# 🏔️ Montara — Hill Station Discovery Platform
+# Montara — Hill Station Discovery Platform
 
 > Discover India's most breathtaking hill stations through an immersive, animated travel experience — with live weather data on every destination.
 
@@ -11,44 +11,44 @@
 
 ---
 
-## 🌐 Live Demo
+## Live Demo
 
 **[montara-zeta.vercel.app](https://montara-zeta.vercel.app/)**
 
 ---
 
-## 📖 About
+## About
 
-**Montara** is a niche hill station discovery platform that helps travelers explore hidden and popular hill destinations across India. Built with vanilla HTML, CSS, and JavaScript — no frontend framework used.
+**Montara** is a hill station discovery platform that helps travelers explore hidden and popular destinations across India. Built with vanilla HTML, CSS, and JavaScript — no frontend framework.
 
-This project started as a college HTML/CSS project and evolved into a full-featured, JavaScript-powered travel platform with smooth animations, real-time weather data via API integration, multi-page architecture, real interactivity, and a fully functional contact form with email notifications.
+The project started as a college HTML/CSS assignment and evolved into a full-featured, JavaScript-powered travel platform with smooth animations, real-time weather data via API integration, multi-page architecture, and a fully functional contact form with email notifications.
 
-Each destination has its own dedicated page with top attractions, a photo gallery, best time to visit, and travel tips — all styled consistently using shared CSS (`explore.css`) and shared JS (`common.js`).
-
----
-
-## ✨ Features
-
-- 🌤️ **Live Weather API** — Real-time temperature and conditions on every destination card via OpenWeatherMap API (async/await, loading spinner, graceful error handling)
-- 📧 **Functional Contact Form** — Real-time email notifications via EmailJS API integration, with no dedicated backend server required
-- 🔍 **Real-time Search & Filter** — Instant destination search using DOM manipulation with card counter
-- 📜 **Scroll Progress Bar** — Fixed top bar showing reading progress via `window.scroll`
-- 🎬 **GSAP + TextPlugin** — Animated hero text typewriter effect on homepage
-- 🚂 **Locomotive Scroll** — Smooth scroll with lerp across all pages
-- 👁️ **IntersectionObserver Animations** — Cards animate in on scroll with staggered delay
-- ✅ **Form Validation** — Full client-side validation (name, email regex, destination whitelist, date, message)
-- 🍔 **Hamburger Menu** — Mobile-responsive nav with CSS toggle animation
-- 📱 **Fully Responsive** — Desktop, tablet (768px), and mobile (480px) breakpoints
+Each destination has its own dedicated page with top attractions, a photo gallery, best time to visit, and travel tips — styled consistently using shared CSS (`explore.css`) and shared JS (`common.js`).
 
 ---
 
-## 🌤️ Weather API Integration
+## Features
+
+- **Live Weather API** — Real-time temperature and conditions on every destination card via the OpenWeatherMap API (async/await, loading spinner, graceful error handling)
+- **Functional Contact Form** — Real-time email notifications via EmailJS, with no dedicated backend required
+- **Real-time Search & Filter** — Instant destination search using DOM manipulation with a live card counter
+- **Scroll Progress Bar** — Fixed top bar showing reading progress via `window.scroll`
+- **GSAP + TextPlugin** — Animated hero text typewriter effect on the homepage
+- **Locomotive Scroll** — Smooth scroll with lerp across all pages
+- **IntersectionObserver Animations** — Cards animate in on scroll with staggered delay
+- **Form Validation** — Full client-side validation (name, email regex, destination whitelist, date, message)
+- **Responsive Navigation** — Mobile-friendly hamburger menu with CSS toggle animation
+- **Fully Responsive** — Desktop, tablet (768px), and mobile (480px) breakpoints
+
+---
+
+## Weather API Integration
 
 Each destination card fetches live weather data from the **OpenWeatherMap API** on page load:
 
 - Temperature in Celsius (rounded)
 - Current weather condition (clear sky, light rain, etc.)
-- Loading spinner while fetching — graceful "unavailable" fallback on error
+- Loading spinner while fetching, with a graceful fallback on error
 - Implemented using `async/await` and `fetch()` — no external libraries
 
 ```js
@@ -63,7 +63,7 @@ async function fetchWeather(city) {
 
 ---
 
-## 📧 Contact Form & Email Integration
+## Contact Form & Email Integration
 
 The "Plan Your Trip" form on the homepage sends real-time email notifications using **EmailJS**, eliminating the need for a custom backend or server-side mail handling:
 
@@ -83,7 +83,7 @@ emailjs.sendForm("service_id", "template_id", form)
 
 ---
 
-## 🏔️ Destinations Covered
+## Destinations Covered
 
 | Destination | State | Highlights |
 |-------------|-------|------------|
@@ -99,12 +99,12 @@ emailjs.sendForm("service_id", "template_id", form)
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Technology | Usage |
 |-----------|-------|
 | HTML5 | Semantic structure across 10+ pages |
-| CSS3 | Flexbox, Grid, Glassmorphism, Responsive |
+| CSS3 | Flexbox, Grid, Glassmorphism, Responsive design |
 | JavaScript (Vanilla) | DOM, Events, Fetch API, Async/Await, IntersectionObserver, Validation |
 | OpenWeatherMap API | Live weather data on all destination cards |
 | EmailJS | Serverless contact form email notifications |
@@ -116,7 +116,7 @@ emailjs.sendForm("service_id", "template_id", form)
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 Montara/
@@ -144,7 +144,7 @@ Montara/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### View Live
 Visit **[montara-zeta.vercel.app](https://montara-zeta.vercel.app/)**
@@ -159,17 +159,17 @@ code .
 
 # Open index.html with Live Server (VS Code extension)
 ```
-> No build step, no npm, no framework — pure HTML/CSS/JS!
+> No build step, no npm, no framework — pure HTML/CSS/JS.
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
-> <img width="1920" height="913" alt="Montara Homepage" src="https://github.com/user-attachments/assets/121dd019-bd11-4766-b4db-f80d5f41f2d7" />
+<img width="1920" height="913" alt="Montara Homepage" src="https://github.com/user-attachments/assets/121dd019-bd11-4766-b4db-f80d5f41f2d7" />
 
 ---
 
-## 🐛 Known Issues & Fixes Applied
+## Known Issues & Fixes Applied
 
 | Issue | Fix Applied |
 |-------|-----|
@@ -181,30 +181,26 @@ code .
 
 ---
 
-## 🎯 What I Learned
+## What I Learned
 
 - Building a multi-page website with shared CSS and JS across 9+ pages
 - Integrating a real REST API (OpenWeatherMap) using `fetch()` and `async/await`
 - Implementing loading states, error handling, and spinner UI for async operations
 - Writing real-time search/filter logic from scratch without any library
-- Using IntersectionObserver API for performant scroll-triggered animations
+- Using the IntersectionObserver API for performant scroll-triggered animations
 - Client-side form validation with regex and destination whitelisting
 - Integrating a third-party email service (EmailJS) to add real functionality to a static frontend
-- Mobile-first responsive design with hamburger menu
+- Mobile-first responsive design with a hamburger menu
 - Deploying and managing a multi-page project on Vercel
 
 ---
 
-## 👩‍💻 Author
+## Author
 
 **Rashi Kumari**
-- GitHub: [@RashiSingh1](https://github.com/RashiSingh1)
-- LinkedIn: [linkedin.com/in/rashi-kumari-15987a321](https://www.linkedin.com/in/rashi-kumari-15987a321/)
 
 ---
 
-## 📄 License
+## License
 
 This project is open source and available under the [MIT License](LICENSE).
-
----
