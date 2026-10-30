@@ -33,15 +33,28 @@ document.querySelectorAll('a[href="#destinations"]').forEach((link) => {
 
 const progressBarElement = document.getElementById("progressBar");
 
-scroll.on("scroll", function (args) {
-    const scrollTop = args.scroll.y;
-    const scrollHeight = args.limit.y;
+function updateProgressBar(scrollTop, scrollHeight) {
+    if (!progressBarElement) return;
 
-    const scrollPercent = scrollHeight > 0
+    const percentage = scrollHeight > 0
         ? (scrollTop / scrollHeight) * 100
         : 0;
 
-    progressBarElement.style.width = scrollPercent + "%";
+    progressBarElement.style.width = `${percentage}%`;
+}
+
+// Desktop: Locomotive Scroll
+scroll.on("scroll", function (args) {
+    updateProgressBar(args.scroll.y, args.limit.y);
+});
+
+// Mobile / normal browser scrolling
+window.addEventListener("scroll", function () {
+    const scrollTop = window.scrollY;
+    const scrollHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+
+    updateProgressBar(scrollTop, scrollHeight);
 });
 
 // HAMBURGER MENU
