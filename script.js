@@ -30,18 +30,19 @@ document.querySelectorAll('a[href="#destinations"]').forEach((link) => {
     });
 });
 // SCROLL PROGRESS BAR
-function progressBar() {
-    window.addEventListener("scroll", function () {
-        let scrollTop = window.scrollY;
-        let docHeight =
-            document.documentElement.scrollHeight -
-            window.innerHeight;
-        let scrollPercent = (scrollTop / docHeight) * 100;
-        document.getElementById("progressBar").style.width =
-            scrollPercent + "%";
-    });
-}
-progressBar();
+
+const progressBarElement = document.getElementById("progressBar");
+
+scroll.on("scroll", function (args) {
+    const scrollTop = args.scroll.y;
+    const scrollHeight = args.limit.y;
+
+    const scrollPercent = scrollHeight > 0
+        ? (scrollTop / scrollHeight) * 100
+        : 0;
+
+    progressBarElement.style.width = scrollPercent + "%";
+});
 
 // HAMBURGER MENU
 function toggleMenu() {
