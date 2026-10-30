@@ -15,7 +15,20 @@ window.addEventListener("load", () => {
         disableLerp: true
     });
 });
+// EXPLORE NOW BUTTON FIX
 
+document.querySelectorAll('a[href="#destinations"]').forEach((link) => {
+    link.addEventListener("click", function (event) {
+        event.preventDefault();
+
+        scroll.scrollTo("#destinations", {
+            duration: 1000,
+            offset: 0
+        });
+
+        history.replaceState(null, "", "#destinations");
+    });
+});
 // SCROLL PROGRESS BAR
 function progressBar() {
     window.addEventListener("scroll", function () {
